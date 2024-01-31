@@ -16,25 +16,25 @@ export class TasksResolver {
     return this.tasksService.create(createTaskInput)
   }
 
-  @Query(() => [Task], { name: 'findAll' })
+  @Query(() => [Task], { name: 'findAllTasks' })
   findAll() {
     return this.tasksService.findAll()
   }
 
-  @Query(() => Task, { name: 'task' })
+  @Query(() => Task, { name: 'findTaskById' })
   findOne(@Args('id', { type: () => String }) id: string) {
     return this.tasksService.findOne(id)
   }
 
   @Mutation(() => Task)
   updateTask(
-    @Args('user_id', { type: () => String }) user_id: string,
+    @Args('task_id', { type: () => String }) user_id: string,
     @Args('updateTaskInput') updateTaskInput: UpdateTaskInput,
   ) {
     return this.tasksService.update(user_id, updateTaskInput)
   }
 
-  @Mutation(() => Task)
+  @Mutation(() => Boolean)
   removeTask(@Args('id', { type: () => String }) id: string) {
     return this.tasksService.remove(id)
   }

@@ -9,5 +9,5 @@ export class CreateTaskInput {
   user_id: string
 
   @Field(() => Boolean, { defaultValue: true })
-  boolean: boolean
+  active: boolean
 }

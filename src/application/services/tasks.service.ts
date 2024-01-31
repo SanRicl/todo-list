@@ -12,7 +12,7 @@ export class TasksService {
   }
 
   async findAll() {
-    return await this.findAll()
+    return await this.tasksRepository.listAll()
   }
 
   async findOne(id: string) {
@@ -21,11 +21,11 @@ export class TasksService {
     if (!task) {
       throw new HttpException(`Task not found`, HttpStatus.NOT_FOUND)
     }
+    return task
   }
 
   async update(id: string, data: UpdateTaskInput) {
     const taskUpdated = await this.tasksRepository.updateTask(id, data)
-
     return taskUpdated
   }
 

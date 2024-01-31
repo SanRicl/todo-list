@@ -14,7 +14,7 @@ export class Task {
   user_id: string
 
   @Field(() => Boolean, { defaultValue: true })
-  boolean: boolean
+  active: boolean
 
   @Field(() => Date)
   created_at: DateScalarMode
