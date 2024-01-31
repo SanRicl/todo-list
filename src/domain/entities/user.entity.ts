@@ -1,4 +1,6 @@
 import { DateScalarMode, Field, ID, ObjectType } from '@nestjs/graphql'
+import { Task as TaskP } from '@prisma/client'
+import { Task } from './task.entity'
 
 @ObjectType()
 export default class User {
@@ -22,4 +24,7 @@ export default class User {
 
   @Field(() => Date)
   updated_at: DateScalarMode
+
+  @Field(() => [Task])
+  tasks: TaskP[]
 }
